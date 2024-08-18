@@ -7,7 +7,7 @@ from Sprint_6.pages.base_page import BasePage
 class HomePageHeader(BasePage):
     """Хедер"""
     logo_yandex = (By.XPATH, ".//a[contains(@class, 'Header_LogoYandex')]")
-    logo_scooter = (By.XPATH, ".//a[contains(@class, 'Header_LogoScooter__3lsAR')]")
+    logo_scooter = (By.XPATH, ".//a[contains(@class, 'Header_LogoScooter')]")
     order_button = (By.XPATH, "(.//button[text() = 'Заказать'])[1]")
     order_status_button = (By.XPATH, ".//button[text() = 'Статус заказа']")
     header_page_title = (By.XPATH, ".//div[text() = 'Учебный тренажер']")
