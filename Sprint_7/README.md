@@ -6,7 +6,8 @@
 ## Файлы:
 - allure_results - каталог с отчетом о тестировании
 - tests/ - каталог с автотестами
-- tests/test_create_courier.py - тесты на создание курьера 
+- tests/test_create_courier.py - тесты на создание курьера
+- tests/test_delete_courier.py - тесты на удаление курьера
 - tests/test_login_courier.py - тесты на авторизацию курьера
 - tests/test_order.py - тесты на создание заказа и получение списка заказов
 - urls - файл с URL и эндпоинтами сервиса
