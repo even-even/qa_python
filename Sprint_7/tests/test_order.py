@@ -4,7 +4,7 @@ import allure
 import pytest
 import requests
 
-from Sprint_7.helpers import DataOrder
+from Sprint_7.data import DataOrder
 from Sprint_7.urls import Urls, Endpoints
 from Sprint_7.decorators import Step, Check
 

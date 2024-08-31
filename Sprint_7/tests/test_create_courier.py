@@ -3,7 +3,7 @@ import pytest
 import requests
 
 from Sprint_7.decorators import Step, Check
-from Sprint_7.helpers import DataCourier
+from Sprint_7.data import DataCourier
 from Sprint_7.urls import Urls, Endpoints
 
 
