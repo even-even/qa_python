@@ -4,7 +4,7 @@ import requests
 
 from Sprint_7.decorators import Step, Check
 from Sprint_7.helpers import Courier
-from Sprint_7.data import DataCourier
+from Sprint_7.data import DataCourier, ResponseText
 from Sprint_7.urls import Urls, Endpoints
 
 
@@ -31,7 +31,7 @@ class TestLoginCourier:
 
         with Check("Авторизация не прошла"):
             assert response.status_code == 400
-            assert "Недостаточно данных для входа" in response.text
+            assert ResponseText.NOT_ENOUGT_DATA_LOG_IN in response.text
 
     @allure.title('Ошибка при авторизации курьера с несуществующими данными')
     def test_courier_login_without_null_login_failed(self):
@@ -41,4 +41,4 @@ class TestLoginCourier:
 
         with Check("Авторизация не прошла"):
             assert response.status_code == 404
-            assert "Учетная запись не найдена" in response.text
+            assert ResponseText.ACCOUNT_NOT_FOUND in response.text

@@ -3,8 +3,9 @@ import pytest
 import requests
 
 from Sprint_7.decorators import Step, Check
-from Sprint_7.data import DataCourier
+from Sprint_7.data import DataCourier, ResponseText
 from Sprint_7.urls import Urls, Endpoints
+
 
 
 class TestCreateCourier:
@@ -17,7 +18,7 @@ class TestCreateCourier:
 
         with Check(f'Курьер создан'):
             assert courier_data["status_code"] == 201
-            assert courier_data["response_text"] == '{"ok":true}'
+            assert courier_data["response_text"] == ResponseText.OK_TRUE
 
     @allure.title('Ошибка при создании двух одинаковых курьеров')
     def test_registration_double_courier_failed(self, courier):
@@ -27,7 +28,7 @@ class TestCreateCourier:
 
         with Check("Курьер на создался"):
             assert response.status_code == 409
-            assert "Этот логин уже используется" in response.text
+            assert ResponseText.ALREADY_USED in response.text
 
     @allure.title('Ошибка при создании курьера без заполнения обязательных полей login/password')
     @pytest.mark.parametrize('courier_data', (DataCourier.invalid_data_login_without_login,
@@ -39,4 +40,4 @@ class TestCreateCourier:
 
         with Check("Курьер не создался"):
             assert response.status_code == 400
-            assert "Недостаточно данных для создания учетной записи" in response.text
+            assert ResponseText.NOT_ENOUGT_DATA_CREATE in response.text

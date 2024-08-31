@@ -32,3 +32,15 @@ class DataOrder:
         "deliveryDate": f"{datetime.date.today()}",
         "comment": "Дай самокат",
     }
+
+class ResponseText:
+    # тексты ответов
+    ALREADY_USED = "Этот логин уже используется"
+    NOT_ENOUGT_DATA_CREATE = "Недостаточно данных для создания учетной записи"
+    OK_TRUE = '{"ok":true}'
+    COURIER_NOT_FOUND = "Курьера с таким id нет"
+    INVALID_SYNTAX = "invalid input syntax"
+    NOT_ENOUGT_DATA_LOG_IN = "Недостаточно данных для входа"
+    ACCOUNT_NOT_FOUND = "Учетная запись не найдена"
+    TRACK = "track"
+

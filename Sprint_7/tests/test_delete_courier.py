@@ -2,6 +2,7 @@ import allure
 
 from Sprint_7.decorators import Step, Check
 from Sprint_7.helpers import Courier
+from Sprint_7.data import ResponseText
 
 
 class TestDeleteCourier:
@@ -15,7 +16,7 @@ class TestDeleteCourier:
 
         with Check("Курьер удалился"):
             assert response["status_code"] == 200
-            assert response["response_text"] == '{"ok":true}'
+            assert response["response_text"] == ResponseText.OK_TRUE
 
 
     @allure.title('Удаление курьера с несуществующим ID')
@@ -27,7 +28,7 @@ class TestDeleteCourier:
 
         with Check("Курьер не удалился"):
             assert response["status_code"] == 404
-            assert "Курьера с таким id нет" in response["response_text"]
+            assert ResponseText.COURIER_NOT_FOUND in response["response_text"]
 
     @allure.title('Удаление курьера без ID')
     def test_delete_courier_none_id_failed(self):
@@ -38,4 +39,4 @@ class TestDeleteCourier:
 
         with Check("Курьер не удалился"):
             assert response["status_code"] == 500
-            assert "invalid input syntax" in response["response_text"]
+            assert ResponseText.INVALID_SYNTAX in response["response_text"]

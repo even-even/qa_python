@@ -4,7 +4,7 @@ import allure
 import pytest
 import requests
 
-from Sprint_7.data import DataOrder
+from Sprint_7.data import DataOrder, ResponseText
 from Sprint_7.urls import Urls, Endpoints
 from Sprint_7.decorators import Step, Check
 
@@ -24,7 +24,7 @@ class TestOrder:
 
         with Check("Заказ создан"):
             assert response.status_code == 201
-            assert "track" in response.text
+            assert ResponseText.TRACK in response.text
 
     @allure.title('Получение списка заказов')
     def test_list_orders_success(self):
@@ -34,5 +34,5 @@ class TestOrder:
 
         with Check("Список получен"):
             assert response.status_code == 200
-            assert "track" in response.text
+            assert ResponseText.TRACK in response.text
             assert len(response.content) > 0
