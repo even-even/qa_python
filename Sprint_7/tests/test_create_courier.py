@@ -16,7 +16,7 @@ class TestCreateCourier:
         with Step("Отправить запрос на создание курьера"):
             courier_data = courier
 
-        with Check(f'Курьер создан'):
+        with Check('Курьер создан'):
             assert courier_data["status_code"] == 201
             assert courier_data["response_text"] == ResponseText.OK_TRUE
 
